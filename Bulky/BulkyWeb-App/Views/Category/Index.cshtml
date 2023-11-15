@@ -1,6 +1,18 @@
 ﻿@model List<Category> //this is to tell this view that we will use list of categories that came from CategoryController
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6 ">
+            <h2 class="text-primary">
+                Category List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-controller="Category" asp-action="Create">
+                <i class="bi bi-plus-circle"></i> Create New Category
+            </a>
 
-<h1>Category List</h1>
+        </div>
+    </div>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -18,3 +30,5 @@
         }
     </tbody>
 </table>
+
+</div>
