@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace BulkyWeb_App.Models
 {
-    public class Categories
+    public class Category
     {
         [Key]
         public int Id { get; set; }
