@@ -1,1 +1,20 @@
-﻿<h1>Category List</h1>
+﻿@model List<Category> //this is to tell this view that we will use list of categories that came from CategoryController
+
+<h1>Category List</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>DisplayOrder</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var category in Model.OrderBy(u=>u.DisplayOrder))
+        {
+        <tr>
+            <td>@category.Name</td>
+            <td>@category.DisplayOrder</td>
+        </tr>
+        }
+    </tbody>
+</table>
