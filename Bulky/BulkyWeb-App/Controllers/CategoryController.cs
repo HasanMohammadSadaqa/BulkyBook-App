@@ -38,6 +38,11 @@ namespace BulkyWeb_App.Controllers
 
         public IActionResult Create(Category category)
         {
+            //if(category.Name == category.DisplayOrder.ToString())
+            //{
+            //    ModelState.AddModelError("", "Category name and display order cannot match");
+            //}
+
             if(ModelState.IsValid)
             {
                 _context.Categories.Add(category);
