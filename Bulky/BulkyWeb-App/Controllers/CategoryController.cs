@@ -52,5 +52,46 @@ namespace BulkyWeb_App.Controllers
             return View();
            
         }
+
+
+        //Action Methods to Edit a specific Category: 
+
+        public IActionResult Edit(int? categoryId)
+        {
+            if (categoryId == null || categoryId == 0)
+            {
+                return NotFound();
+            }
+
+            Category? categoryFromDb = _context.Categories.Find(categoryId);                                  /* Here there is multiple ways to get record from db, first way is "Find()" in this method it take Primery key for the model as default and it's true for our case,
+            Category categoryFromDb2 = _context.Categories.FirstOrDefault(u => u.Id == categoryId);             the second way is 'FirstOrDefault(link operation), in this case we will use link operation to find the element and it will work even the parameter(id) is not primery key,
+            Category categoryFromDb3 = _context.Categories.Where(u => u.Id == categoryId).FirstOrDefault();     the third way is where conition and it is as same as 'FirstOrDefault' way, it use link operation*/
+
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(categoryFromDb);
+        }
+
+
+        [HttpPost]
+
+        public IActionResult Edit(Category category)
+        {
+            //    if (category.Name == category.DisplayOrder.ToString())
+            //    {
+            //        ModelState.AddModelError("", "Category name and display order cannot match");
+            //    }
+
+            if (ModelState.IsValid)
+            {
+                _context.Categories.Update(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Category");          // here we redirect to the list of category >>>>> the first qutation is name of view, and the second one is the name of controller
+            }
+            return View();
+
+        }
     }
 }
