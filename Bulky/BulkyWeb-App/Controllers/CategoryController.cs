@@ -56,28 +56,28 @@ namespace BulkyWeb_App.Controllers
 
         //Action Methods to Edit a specific Category: 
 
-        public IActionResult Edit(int? categoryId)
+        public IActionResult Edit(int? categoryIdToEdit)
         {
-            if (categoryId == null || categoryId == 0)
+            if (categoryIdToEdit == null || categoryIdToEdit == 0)
             {
                 return NotFound();
             }
 
-            Category? categoryFromDb = _context.Categories.Find(categoryId);                                  /* Here there is multiple ways to get record from db, first way is "Find()" in this method it take Primery key for the model as default and it's true for our case,
-            Category categoryFromDb2 = _context.Categories.FirstOrDefault(u => u.Id == categoryId);             the second way is 'FirstOrDefault(link operation), in this case we will use link operation to find the element and it will work even the parameter(id) is not primery key,
-            Category categoryFromDb3 = _context.Categories.Where(u => u.Id == categoryId).FirstOrDefault();     the third way is where conition and it is as same as 'FirstOrDefault' way, it use link operation*/
+            Category? categoryFromDbToEdit = _context.Categories.Find(categoryIdToEdit);                                  /* Here there is multiple ways to get record from db, first way is "Find()" in this method it take Primery key for the model as default and it's true for our case,
+            Category categoryFromDb2 = _context.Categories.FirstOrDefault(u => u.Id == categoryIdToEdit);             the second way is 'FirstOrDefault(link operation), in this case we will use link operation to find the element and it will work even the parameter(id) is not primery key,
+            Category categoryFromDb3 = _context.Categories.Where(u => u.Id == categoryIdToEdit).FirstOrDefault();     the third way is where conition and it is as same as 'FirstOrDefault' way, it use link operation*/
 
-            if (categoryFromDb == null)
+            if (categoryFromDbToEdit == null)
             {
                 return NotFound();
             }
-            return View(categoryFromDb);
+            return View(categoryFromDbToEdit);
         }
 
 
         [HttpPost]
 
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Category categoryToEdit)
         {
             //    if (category.Name == category.DisplayOrder.ToString())
             //    {
@@ -86,12 +86,38 @@ namespace BulkyWeb_App.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Categories.Update(category);
+                _context.Categories.Update(categoryToEdit);
                 _context.SaveChanges();
-                return RedirectToAction("Index", "Category");          // here we redirect to the list of category >>>>> the first qutation is name of view, and the second one is the name of controller
+                return RedirectToAction("Index", "Category");          
             }
             return View();
 
         }
+
+
+        // Method to delete a record from Db
+        public IActionResult Delete(int? categoryIdToDelete)
+        {
+            if(categoryIdToDelete == null || categoryIdToDelete == 0)
+            {
+                return NotFound($"Category with Id = {categoryIdToDelete} not found");
+            }
+            Category? categoryFromDbToDelete = _context.Categories.FirstOrDefault(u=> u.Id == categoryIdToDelete);
+
+            if (categoryFromDbToDelete == null)
+            {
+                return NotFound($"Employee with Id = {categoryIdToDelete} not found");
+            }
+            return View(categoryFromDbToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Category categoryToDelete)
+        {
+            _context.Categories.Remove(categoryToDelete);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Category");
+        }
+
     }
 }
