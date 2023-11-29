@@ -47,6 +47,7 @@ namespace BulkyWeb_App.Controllers
             {
                 _context.Categories.Add(category);
                 _context.SaveChanges();
+                TempData["success"] = "Category created successfully";
                 return RedirectToAction("Index", "Category");          // here we redirect to the list of category >>>>> the first qutation is name of view, and the second one is the name of controller
             }
             return View();
@@ -88,6 +89,7 @@ namespace BulkyWeb_App.Controllers
             {
                 _context.Categories.Update(categoryToEdit);
                 _context.SaveChanges();
+                TempData["success"] = "Category updated successfully";
                 return RedirectToAction("Index", "Category");          
             }
             return View();
@@ -116,6 +118,7 @@ namespace BulkyWeb_App.Controllers
         {
             _context.Categories.Remove(categoryToDelete);
             _context.SaveChanges();
+            TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index", "Category");
         }
 
