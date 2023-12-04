@@ -1,0 +1,12 @@
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\bin\Debug\net7.0\Bulky.Models.deps.json
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\bin\Debug\net7.0\Bulky.Models.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\bin\Debug\net7.0\Bulky.Models.pdb
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\Bulky.Models.csproj.AssemblyReference.cache
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\Bulky.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\Bulky.Models.AssemblyInfoInputs.cache
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\Bulky.Models.AssemblyInfo.cs
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\Bulky.Models.csproj.CoreCompileInputs.cache
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\Bulky.Models.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\refint\Bulky.Models.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\Bulky.Models.pdb
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\Bulky.Models\obj\Debug\net7.0\ref\Bulky.Models.dll

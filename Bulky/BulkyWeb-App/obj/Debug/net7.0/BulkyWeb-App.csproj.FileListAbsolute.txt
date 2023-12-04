@@ -73,3 +73,9 @@ C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\De
 C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\obj\Debug\net7.0\BulkyWeb-App.csproj.CopyComplete
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Bulky.DataAccess.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Bulky.Models.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Bulky.Utility.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Bulky.DataAccess.pdb
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Bulky.Models.pdb
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Bulky.Utility.pdb
