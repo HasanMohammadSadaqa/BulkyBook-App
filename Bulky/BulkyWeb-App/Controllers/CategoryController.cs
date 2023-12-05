@@ -1,5 +1,6 @@
 ﻿
 using Bulky.DataAccess.Data;
+using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,19 +8,19 @@ namespace BulkyWeb_App.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICategoryRepository  _categoryRepo;
 
         //dependancy injection (constructor take an object as parameter >>>>> where the dependencies of a class are provided from the outside rather than created within the class itself)
-        public CategoryController(ApplicationDbContext context)
+        public CategoryController(ICategoryRepository context)
         {
-            _context = context;
+            _categoryRepo = context;
         }
 
 
         //Action method to retrieve all categories 
         public IActionResult Index()
         {
-            List<Category> objListCategories = _context.Categories.ToList();
+            List<Category> objListCategories = _categoryRepo.GetAll().ToList();
             return View(objListCategories);
         }
 
@@ -46,8 +47,8 @@ namespace BulkyWeb_App.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Categories.Add(category);
-                _context.SaveChanges();
+                _categoryRepo.AddOneElement(category);
+                _categoryRepo.Save();
                 TempData["success"] = "Category created successfully";
                 return RedirectToAction("Index", "Category");          // here we redirect to the list of category >>>>> the first qutation is name of view, and the second one is the name of controller
             }
@@ -65,7 +66,7 @@ namespace BulkyWeb_App.Controllers
                 return NotFound();
             }
 
-            Category? categoryFromDbToEdit = _context.Categories.Find(categoryIdToEdit);                                  /* Here there is multiple ways to get record from db, first way is "Find()" in this method it take Primery key for the model as default and it's true for our case,
+            Category? categoryFromDbToEdit = _categoryRepo.GetOneElement(u=>u.Id == categoryIdToEdit);                                  /* Here there is multiple ways to get record from db, first way is "Find()" in this method it take Primery key for the model as default and it's true for our case,
             Category categoryFromDb2 = _context.Categories.FirstOrDefault(u => u.Id == categoryIdToEdit);             the second way is 'FirstOrDefault(link operation), in this case we will use link operation to find the element and it will work even the parameter(id) is not primery key,
             Category categoryFromDb3 = _context.Categories.Where(u => u.Id == categoryIdToEdit).FirstOrDefault();     the third way is where conition and it is as same as 'FirstOrDefault' way, it use link operation*/
 
@@ -88,8 +89,8 @@ namespace BulkyWeb_App.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Categories.Update(categoryToEdit);
-                _context.SaveChanges();
+               _categoryRepo.Update(categoryToEdit);
+                _categoryRepo.Save();
                 TempData["success"] = "Category updated successfully";
                 return RedirectToAction("Index", "Category");          
             }
@@ -105,7 +106,7 @@ namespace BulkyWeb_App.Controllers
             {
                 return NotFound($"Category with Id = {categoryIdToDelete} not found");
             }
-            Category? categoryFromDbToDelete = _context.Categories.FirstOrDefault(u=> u.Id == categoryIdToDelete);
+            Category? categoryFromDbToDelete = _categoryRepo.GetOneElement(u=> u.Id == categoryIdToDelete);
 
             if (categoryFromDbToDelete == null)
             {
@@ -117,8 +118,8 @@ namespace BulkyWeb_App.Controllers
         [HttpPost]
         public IActionResult Delete(Category categoryToDelete)
         {
-            _context.Categories.Remove(categoryToDelete);
-            _context.SaveChanges();
+           _categoryRepo.RemoveOneElement(categoryToDelete);
+            _categoryRepo.Save();
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index", "Category");
         }
