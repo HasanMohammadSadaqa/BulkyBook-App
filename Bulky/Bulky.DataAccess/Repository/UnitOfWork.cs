@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDbContext _context;
         public ICategoryRepository Category { get; private set; }
