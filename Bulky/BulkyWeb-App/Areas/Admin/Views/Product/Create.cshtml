@@ -1,0 +1,90 @@
+﻿@model ProductVM //this is mean that when we submit the form an object of Product will created
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Category</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row">
+            <div class="border p-3">
+                <div asp-validation-summary="All"></div>     
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.Title" class="form-control border-0 shadow" />
+                    <label asp-for="product.Title" class="ms-2"></label>                            @*Here we used tag Helper "asp-for" to tell the form what this label mean*@
+                    <span asp-validation-for="product.Title" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.Author" class="form-control border-0 shadow" />
+                    <label asp-for="product.Author" class="ms-2"></label>
+                    <span asp-validation-for="product.Author" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <textarea asp-for="product.Description" class="form-control border-0 shadow"></textarea>
+                    <label asp-for="product.Description" class="ms-2"></label>
+                    <span asp-validation-for="product.Description" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.ISBN" class="form-control border-0 shadow" />
+                    <label asp-for="product.ISBN" class="ms-2"></label>
+                    <span asp-validation-for="product.ISBN" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.ListPrice" type="number" class="form-control border-0 shadow" />
+                    <label asp-for="product.ListPrice" class="ms-2"></label>
+                    <span asp-validation-for="product.ListPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.Price" type="number" class="form-control border-0 shadow" />
+                    <label asp-for="product.Price" class="ms-2"></label>
+                    <span asp-validation-for="product.Price" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.Price50" type="number" class="form-control border-0 shadow" />
+                    <label asp-for="product.Price50" class="ms-2"></label>
+                    <span asp-validation-for="product.Price50" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.Price100" type="number" class="form-control border-0 shadow" />
+                    <label asp-for="product.Price100" class="ms-2"></label>
+                    <span asp-validation-for="product.Price100" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="product.CategoryId" asp-items="@Model.categoryList" type="number" class="form-select border-0 shadow">
+                        <option selected disabled>--Select Category--</option>
+                    </select>
+                    <label asp-for="product.CategoryId" class="ms-2"></label>
+                    <span asp-validation-for="product.CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="product.ImageUrl" class="form-control border-0 shadow" />
+                    <label asp-for="product.ImageUrl" class="ms-2"></label>
+                    <span asp-validation-for="product.ISBN" class="text-danger"></span>
+                </div>
+                <div class="row pt-4">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-primary form-control">Create</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary border form-control">Back To List</a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+@*Adding partial scripts or partial view in order to use different view in this view without repeate the code of that view, in this case we use this to display client-side validation (display them without refreshing the page)*@
+@section scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+}
+

@@ -257,3 +257,6 @@ C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\De
 C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\Hasan\Desktop\Noursoft training\BulkyBook App\Bulky\BulkyWeb-App\obj\Debug\net7.0\BulkyWeb-App.MvcApplicationPartsAssemblyInfo.cs
